@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100
+    @apply bg-gray-950 text-gray-100
   }
 }
 
@@ -24,4 +24,9 @@
 *::-webkit-scrollbar-thumb {
   background-color: #10b981;
   border-radius: 14px;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
