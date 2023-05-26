@@ -3,12 +3,35 @@ import React from 'react'
 import { TechBadge } from './TechBadge'
 import { WorkExperiences } from '../@types/WorkExperiences'
 import { RichText } from './Richtext'
+import { differenceInMonths, differenceInYears, format } from 'date-fns'
+import pt from 'date-fns/locale/pt'
 
 interface ExperienseItemProps {
   experience: WorkExperiences
 }
 
 export function ExperienseItem({ experience }: ExperienseItemProps) {
+  const startDate = new Date(experience.startDate)
+  const formattedStartDate = format(startDate, 'MMM, yyyy', { locale: pt })
+  const formattedEndDate = experience.endDate
+    ? format(new Date(experience.endDate), 'MMM yyyy', { locale: pt })
+    : 'O momento'
+
+  const end = experience.endDate ? new Date(experience.endDate) : new Date()
+
+  const months = differenceInMonths(end, startDate)
+  const years = differenceInYears(end, startDate)
+  const monthsRemaining = months % 12
+
+  const formattedDuration =
+    years > 0
+      ? `${years} ano${years > 1 ? 's' : ''}${
+          monthsRemaining > 0
+            ? ` e ${monthsRemaining} mes${monthsRemaining > 1 ? 'es' : ''}`
+            : ''
+        }`
+      : `${months} mes${months > 1 ? 'es' : ''}`
+
   return (
     <div className="grid grid-cols-[40px,1fr] gap-4 md:gap-10">
       <div className="flex flex-col items-center gap-4">
@@ -35,7 +58,7 @@ export function ExperienseItem({ experience }: ExperienseItemProps) {
           </a>
           <h4 className="text-zinc-300">{experience.role}</h4>
           <span className="text-zinc-500">
-            Oct 2022 • O momento • (5 meses)
+            {formattedStartDate} • {formattedEndDate} • ({formattedDuration})
           </span>
           <div className="text-zinc-400">
             <RichText content={experience.description.raw} />

@@ -8,7 +8,7 @@ export type WorkExperiences = {
   role: string
   companyName: string
   companyUrl: string
-  stardDate: string
+  startDate: string
   endDate: string
   technologies: KnownTech[]
   description: {
