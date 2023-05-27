@@ -10,11 +10,11 @@ export function ProjectHero() {
         className="text-center items-center [&>h3]:text-4xl"
       />
       <p className="text-zinc-400 text-center max-w-2xl mx-auto mt-4 leading-relaxed my-6">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem cumque,
-        eos minima totam delectus, voluptas quisquam iste unde quo officia
-        cupiditate voluptatum laborum. Illum totam doloremque perspiciatis magni
-        nulla, sequi, nostrum laborum consequatur dolorem enim vero illo ipsam
-        cumque at.
+        Bem-vindo à seção de projetos do meu portfólio! Aqui você encontrará uma
+        seleção dos projetos em que trabalhei como desenvolvedor FullStack
+        Javascript. Cada projeto representa um desafio único que abordei com
+        entusiasmo e dedicação, buscando oferecer soluções inovadoras e de alta
+        qualidade.
       </p>
     </section>
   )

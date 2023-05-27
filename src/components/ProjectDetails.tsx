@@ -15,7 +15,7 @@ interface ProjectDetailsProps {
 
 export function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
-    <section className="w-full sm:min-h-[750px] flex flex-col items-center justify-end relative pb-10 sm:pb-24 py-24 px-6 overflow-hidden">
+    <section className="w-full sm:min-h-[750px] flex flex-col items-center justify-end relative pb-10 sm:pb-24 py-32 px-6 overflow-hidden">
       <div
         className="absolute inset-0 z-[-1]"
         style={{
@@ -27,7 +27,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
         title={project.title}
         className="text-center items-center sm:[&>h3]:text-4xl"
       />
-      <div className="text-zinc-400 text-center max-w-2xl my-4 sm:my-6 text-sm sm:text-base">
+      <div className="text-zinc-100 text-justify border-l-emerald-100 max-w-3xl my-4 sm:my-6 text-sm sm:text-base">
         <RichText content={project.description.raw} />
       </div>
       <div className="w-full max-w-xs flex flex-wrap gap-2 items-center justify-center">
