@@ -1,32 +1,23 @@
 import Image from 'next/image'
 import React from 'react'
+import { ProjectSection } from '../@types/ProjectsTypes'
+interface ProjectSectionsProps {
+  sections: ProjectSection[]
+}
 
-const sections = [
-  {
-    id: 1,
-    title: 'Login',
-    image: '/images/projects/login.png',
-  },
-  {
-    id: 2,
-    title: 'Home',
-    image: '/images/projects/home.png',
-  },
-]
-
-export function ProjectSections() {
+export function ProjectSections({ sections }: ProjectSectionsProps) {
   return (
     <section className="container my-12 md:my-32 flex flex-col gap-8 md:gap-32">
       {sections.map((section) => (
         <div
           className="flex flex-col items-center gap-6 md:gap-12"
-          key={section.id}
+          key={section.title}
         >
           <h2 className="text-2xl md:text-3xl font-medium text-zinc-300">
             {section.title}
           </h2>
           <Image
-            src={section.image}
+            src={section.image.url}
             width={1080}
             height={672}
             alt=""
