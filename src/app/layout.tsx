@@ -6,6 +6,19 @@ import { ContactForm } from '../components/ContactForm'
 import { Footer } from '../components/Footer'
 import { BackToTop } from '../components/BackToTop'
 
+export const metadata = {
+  title: {
+    default: 'Claudio Lins',
+    template: '%s | Claudio Lins',
+  },
+  description: 'Claudio Lins - Desenvolvedor Front-end',
+  icons: [
+    {
+      url: '/favicon.svg',
+    },
+  ],
+}
+
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],

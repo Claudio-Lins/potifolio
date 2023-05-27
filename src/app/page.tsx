@@ -49,7 +49,8 @@ const getPageData = async (): Promise<HomePageData> => {
         startDate
         endDate
         description {
-          raw
+          raw,
+          text
         }
         technologies {
           name
