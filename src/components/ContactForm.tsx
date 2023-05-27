@@ -3,24 +3,36 @@ import React, { FormEvent } from 'react'
 import { SectionTitle } from './SectionTitle'
 import { Button } from './Button'
 import { useForm } from 'react-hook-form'
-import { TypeOf, z } from 'zod'
+import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import axios from 'axios'
+import { toast } from 'react-hot-toast'
 
 const constctFormSchema = z.object({
-  name: z.string().min(3).max(50),
+  name: z.string().min(3),
   email: z.string().email(),
-  message: z.string().min(10),
+  message: z.string(),
 })
 
 type ContactFormData = z.infer<typeof constctFormSchema>
 
 export function ContactForm() {
-  const { register, handleSubmit, reset } = useForm<ContactFormData>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<ContactFormData>({
     resolver: zodResolver(constctFormSchema),
   })
 
-  function onSubmit(data: ContactFormData) {
-    console.log(data)
+  async function onSubmit(data: ContactFormData) {
+    try {
+      await axios.post('/api/contact', data)
+      toast.success('Mensagem enviada com sucesso')
+    } catch (error) {
+      toast.error('Algo deu errado!')
+    }
     reset()
   }
 
@@ -57,7 +69,13 @@ export function ContactForm() {
             {...register('message')}
             className="w-full bg-zinc-800 rounded-lg placeholder:text-zinc-400 p-4 text-zinc-50 focus:outline-none focus:ring-1 ring-emerald-600 resize-none"
           />
-          <Button className="mt-6 shadow-button">Enviar mensagem</Button>
+          <Button
+            disabled={isSubmitting}
+            type="submit"
+            className="mt-6 shadow-button"
+          >
+            Enviar mensagem
+          </Button>
         </form>
       </div>
     </section>
