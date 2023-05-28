@@ -32,7 +32,7 @@ export function HeroSection({ homeInfo }: HeroSectionProps) {
           <div className="text-zinc-400 my-6 text-sm sm:text-base space-y-2 p-2 h-48 overflow-auto">
             <RichText content={homeInfo.introduction.raw} />
           </div>
-          <div className="flex flex-wrap gap-x-2 gap-y-3 lg:max-w-xs">
+          <div className="flex flex-wrap gap-x-2 gap-y-3 w-full">
             {homeInfo.technologies.map((tech, i) => (
               <TechBadge
                 initial={{ opacity: 0, scale: 0 }}
