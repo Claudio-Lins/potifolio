@@ -27,7 +27,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
         title={project.title}
         className="text-center items-center sm:[&>h3]:text-4xl"
       />
-      <div className="text-zinc-100 text-justify border-l-emerald-100 max-w-3xl my-4 sm:my-6 text-sm sm:text-base">
+      <div className="text-zinc-100 border-l-emerald-100 max-w-3xl my-4 sm:my-6 text-sm sm:text-base">
         <RichText content={project.description.raw} />
       </div>
       <div className="w-full max-w-xs flex flex-wrap gap-2 items-center justify-center">

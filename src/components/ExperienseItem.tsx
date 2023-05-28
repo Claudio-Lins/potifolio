@@ -37,11 +37,11 @@ export function ExperienseItem({ experience }: ExperienseItemProps) {
       <div className="flex flex-col items-center gap-4">
         <div className="rounded-full border border-zinc-500 p-0.5">
           <Image
-            src="/images/empresa/logo-empresa.png"
+            src={experience.companyLogo.url}
             width={40}
             height={40}
             alt=""
-            className="rounded-full"
+            className="rounded-full object-cover bg-zinc-300"
           />
         </div>
         <div className="h-full w-px bg-zinc-700" />

@@ -37,7 +37,7 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
         raw
         text
       }
-      technologies {
+      technologies (first: 100) {
         name
       }
       liveProjectUrl
