@@ -18,7 +18,7 @@ export function NavLink({ href, label }: NavLinkProps) {
       <span
         className={`
         font-semibold text-zinc-100
-        ${isActive ? 'text-emerald-500' : ''}
+        ${isActive && 'text-green-500'}
       `}
       >
         {label}

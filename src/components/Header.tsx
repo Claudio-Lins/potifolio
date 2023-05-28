@@ -1,6 +1,8 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
 import { NavLink } from './NavLink'
+import { motion } from 'framer-motion'
 
 const navLink = [
   {
@@ -15,7 +17,12 @@ const navLink = [
 
 export function Header() {
   return (
-    <header className="h-24 fixed z-10 flex items-center justify-between w-full bg-[#000203]">
+    <motion.header
+      initial={{ top: -100 }}
+      animate={{ top: 0 }}
+      transition={{ duration: 0.5 }}
+      className="h-24 fixed z-10 flex items-center justify-between w-full bg-[#000203]"
+    >
       <div className="flex justify-between items-center container">
         <Link href="/">
           <span className="font-black text-emerald-400 text-4xl tracking-tighter md:hidden">
@@ -32,6 +39,6 @@ export function Header() {
           ))}
         </nav>
       </div>
-    </header>
+    </motion.header>
   )
 }

@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import { Loader } from 'lucide-react'
 
 const constctFormSchema = z.object({
   name: z.string().min(3),
@@ -74,7 +75,12 @@ export function ContactForm() {
             type="submit"
             className="mt-6 shadow-button"
           >
-            Enviar mensagem
+            {!isSubmitting && 'Enviar mensagem'}
+            {isSubmitting && (
+              <>
+                <span>Enviando</span> <Loader className="animate-spin" />
+              </>
+            )}
           </Button>
         </form>
       </div>
