@@ -22,7 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           className="object-cover rounded-lg w-full h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full"
         />
       </div>
-      <div className="">
+      <div className="w-full">
         <h3 className="flex items-center gap-3 font-medium text-lg text-zinc-50">
           <Image
             src="/images/icons/project-title-icon.svg"

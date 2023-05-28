@@ -64,7 +64,7 @@ const getPageData = async (): Promise<HomePageData> => {
 export default async function Home() {
   const { page: pageData, workExperiences } = await getPageData()
   return (
-    <div className="pt-64 md:pt-8">
+    <div className="pt-96 md:pt-8">
       <HeroSection homeInfo={pageData} />
       <Knowledge techs={pageData.knownTechs} />
       <HighlightedProjects projects={pageData.highlightProjects} />
