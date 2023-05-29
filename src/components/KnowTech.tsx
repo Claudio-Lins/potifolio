@@ -18,7 +18,7 @@ export function KnowTech({ tech }: KnowTechPros) {
         <p>{tech.name}</p>
         <CMSIcon icon={tech.iconSvg} />
       </div>
-      <span>{relativeTime}</span>
+      {/* <span>{relativeTime}</span> */}
     </div>
   )
 }
