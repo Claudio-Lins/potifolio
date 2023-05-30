@@ -40,6 +40,9 @@ const getProjectDetails = async (slug: string): Promise<ProjectPageData> => {
       technologies (first: 100) {
         name
       }
+      packageJson {
+        raw
+      }
       liveProjectUrl
       githubUrl
     }

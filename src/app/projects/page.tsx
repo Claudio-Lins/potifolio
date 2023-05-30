@@ -4,6 +4,7 @@ import { DivideH } from '../../components/DivideH'
 import { ProjectList } from '@/src/components/ProjectList'
 import { fetchHygraphQuery } from '@/src/utils/fetch-hygraph-query'
 import { ProjectsPageData } from '@/src/@types/PageInfoTypes'
+import { RichText } from '@/src/components/Richtext'
 
 export const metadata = {
   title: {
@@ -24,6 +25,9 @@ const getPageData = async (): Promise<ProjectsPageData> => {
         }
         technologies {
           name
+        }
+        packageJson {
+          raw
         }
       }
     }

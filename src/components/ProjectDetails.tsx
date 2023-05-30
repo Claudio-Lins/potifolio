@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { SectionTitle } from './SectionTitle'
 import { TechBadge } from './TechBadge'
 import { Button } from './Button'
@@ -8,12 +9,20 @@ import { Link } from './Link'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { Project } from '../@types/ProjectsTypes'
 import { RichText } from './Richtext'
+import { SiNodedotjs } from 'react-icons/si'
+import { Modal } from './Modal'
 
 interface ProjectDetailsProps {
   project: Project
 }
 
 export function ProjectDetails({ project }: ProjectDetailsProps) {
+  const [isShowModal, setIsShowModal] = useState(true)
+
+  function toggleModal() {
+    setIsShowModal(!isShowModal)
+  }
+
   return (
     <section className="w-full sm:min-h-[750px] flex flex-col items-center justify-end relative pb-10 sm:pb-24 py-32 px-6 overflow-hidden">
       <div
@@ -52,11 +61,26 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
             </Button>
           </a>
         )}
+        {project.packageJson && (
+          <Button onClick={toggleModal} className="min-w[180px]">
+            <SiNodedotjs size={20} />
+            Package Json
+          </Button>
+        )}
       </div>
       <Link href="/projects">
         <HiArrowNarrowLeft />
         Voltar para home
       </Link>
+      {isShowModal && (
+        <div className="absolute inset-0 bg-zinc-950 z-50 flex justify-center items-center scroll-m-96">
+          <Button onClick={toggleModal} className="absolute right-2 top-2">
+            X
+          </Button>
+
+          <RichText content={project.packageJson.raw} />
+        </div>
+      )}
     </section>
   )
 }
