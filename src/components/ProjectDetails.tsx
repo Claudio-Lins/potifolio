@@ -78,7 +78,9 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
             X
           </Button>
 
-          <RichText content={project.packageJson.raw} />
+          {project.packageJson && (
+            <RichText content={project.packageJson.raw} />
+          )}
         </div>
       )}
     </section>
