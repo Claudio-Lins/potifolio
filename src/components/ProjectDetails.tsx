@@ -17,7 +17,7 @@ interface ProjectDetailsProps {
 }
 
 export function ProjectDetails({ project }: ProjectDetailsProps) {
-  const [isShowModal, setIsShowModal] = useState(true)
+  const [isShowModal, setIsShowModal] = useState(false)
 
   function toggleModal() {
     setIsShowModal(!isShowModal)
@@ -72,16 +72,17 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
         <HiArrowNarrowLeft />
         Voltar para home
       </Link>
-      {isShowModal && (
-        <div className="absolute inset-0 bg-zinc-950 z-50 flex justify-center items-center scroll-m-96">
+      {isShowModal && project.packageJson && (
+        <Modal>
           <Button onClick={toggleModal} className="absolute right-2 top-2">
             X
           </Button>
-
-          {project.packageJson && (
-            <RichText content={project.packageJson.raw} />
-          )}
-        </div>
+          <div className="p-12 w-full max-w-3xl bg-zinc-900">
+            {project.packageJson && (
+              <RichText content={project.packageJson.raw} />
+            )}
+          </div>
+        </Modal>
       )}
     </section>
   )

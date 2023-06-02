@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { RichText } from './Richtext'
 
-export function Modal() {
+interface ModalProps {
+  children: ReactNode
+}
+
+export function Modal({ children }: ModalProps) {
   return (
-    <div className=" bg-zinc-950 text-zinc-50 absolute inset-0 z-50">
-      {/* <RichText content={} /> */}
+    <div
+      className="
+      fixed
+      inset-0
+      z-50
+      flex
+      items-center
+      justify-center
+      bg-zinc-600/50  
+      backdrop-filter
+      backdrop-blur-sm
+      overflow-y-auto
+      transition-all
+      duration-300
+      ease-in-out
+    "
+    >
+      {children}
     </div>
   )
 }
