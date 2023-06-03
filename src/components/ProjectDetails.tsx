@@ -1,30 +1,30 @@
-'use client'
-import React, { useState } from 'react'
-import { SectionTitle } from './SectionTitle'
-import { TechBadge } from './TechBadge'
-import { Button } from './Button'
-import { TbBrandGithub } from 'react-icons/tb'
-import { FiGlobe } from 'react-icons/fi'
-import { Link } from './Link'
-import { HiArrowNarrowLeft } from 'react-icons/hi'
-import { Project } from '../@types/ProjectsTypes'
-import { RichText } from './Richtext'
-import { SiNodedotjs } from 'react-icons/si'
-import { Modal } from './Modal'
+"use client";
+import React, { useState } from "react";
+import { SectionTitle } from "./SectionTitle";
+import { TechBadge } from "./TechBadge";
+import { Button } from "./Button";
+import { TbBrandGithub } from "react-icons/tb";
+import { FiGlobe } from "react-icons/fi";
+import { Link } from "./Link";
+import { HiArrowNarrowLeft } from "react-icons/hi";
+import { Project } from "../@types/ProjectsTypes";
+import { RichText } from "./Richtext";
+import { SiNodedotjs } from "react-icons/si";
+import { Modal } from "./Modal";
 
 interface ProjectDetailsProps {
-  project: Project
+  project: Project;
 }
 
 export function ProjectDetails({ project }: ProjectDetailsProps) {
-  const [isShowModal, setIsShowModal] = useState(false)
+  const [isShowModal, setIsShowModal] = useState(false);
 
   function toggleModal() {
-    setIsShowModal(!isShowModal)
+    setIsShowModal(!isShowModal);
   }
 
   return (
-    <section className="w-full sm:min-h-[750px] flex flex-col items-center justify-end relative pb-10 sm:pb-24 py-32 px-6 overflow-hidden">
+    <section className="w-full sm:min-h-[750px] flex flex-col items-center justify-end pb-10 sm:pb-24 py-32 px-6 overflow-hidden relative">
       <div
         className="absolute inset-0 z-[-1]"
         style={{
@@ -73,11 +73,8 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
         Voltar para home
       </Link>
       {isShowModal && project.packageJson && (
-        <Modal>
-          <Button onClick={toggleModal} className="absolute right-2 top-2">
-            X
-          </Button>
-          <div className="p-12 w-full max-w-3xl bg-zinc-900">
+        <Modal onClose={toggleModal} title="Package Json">
+          <div className="">
             {project.packageJson && (
               <RichText content={project.packageJson.raw} />
             )}
@@ -85,5 +82,5 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
         </Modal>
       )}
     </section>
-  )
+  );
 }

@@ -1,0 +1,9 @@
+{
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "parser": "flow"
+      }
+    ]
+  }
