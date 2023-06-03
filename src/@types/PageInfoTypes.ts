@@ -1,38 +1,44 @@
-import type { RichTextContent } from '@graphcms/rich-text-types'
-import { KnownTech, Project } from './ProjectsTypes'
-import { WorkExperiences } from './WorkExperiences'
+import type { RichTextContent } from "@graphcms/rich-text-types";
+import { KnownTech, Project } from "./ProjectsTypes";
+import { WorkExperiences } from "./WorkExperiences";
 
 export type Social = {
-  url: string
-  iconSvg: string
-}
+  url: string;
+  iconSvg: string;
+};
 
 export type HomePageInfo = {
   introduction: {
-    raw: RichTextContent
-  }
-  technologies: KnownTech[]
+    raw: RichTextContent;
+  };
+  technologies: KnownTech[];
   profileCover: {
-    url: string
-  }
-  socialNetworks: Social[]
-  knownTechs: KnownTech[]
-  highlightProjects: Project[]
-}
+    url: string;
+  };
+  cv: {
+    url: string;
+  };
+  cl: {
+    url: string;
+  };
+  socialNetworks: Social[];
+  knownTechs: KnownTech[];
+  highlightProjects: Project[];
+};
 export type ProjectPageData = {
-  project: Project
-}
+  project: Project;
+};
 
 export type ProjectsPageData = {
-  projects: Project[]
-}
+  projects: Project[];
+};
 
 export type ProjectsPageStaticData = {
   projects: {
-    slug: string
-  }[]
-}
+    slug: string;
+  }[];
+};
 export type HomePageData = {
-  page: HomePageInfo
-  workExperiences: WorkExperiences[]
-}
+  page: HomePageInfo;
+  workExperiences: WorkExperiences[];
+};
